@@ -21,34 +21,73 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-D:\stm32\STM32F103 SDIO写入速度测试代码\USER\test.uvprojx
-Project File Date:  03/13/2018
+D:\git\STM32F103_tf_sdio_readtest\USER\test.uvprojx
+Project File Date:  03/20/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling delay.c...
 compiling test.c...
 test.c(68): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
   			        sprintf(num, "%d", j);
 test.c(70): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
   		          sprintf(num, "%d", res);
-test.c(96): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+test.c(97): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
   			        sprintf(num, "%d", j);
-test.c(98): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+test.c(99): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
   		          sprintf(num, "%d", res);
-test.c(125): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-  			        sprintf(num, "%d", j);
-test.c(127): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-  		          sprintf(num, "%d", res);
-test.c(140): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+test.c(112): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
   		sprintf(num, "%d", j);
+test.c(34): warning:  #177-D: variable "k"  was declared but never referenced
+  	u32 j=0,k=0,q=0;
 test.c(34): warning:  #177-D: variable "q"  was declared but never referenced
   	u32 j=0,k=0,q=0;
-test.c: 8 warnings, 0 errors
+test.c: 7 warnings, 0 errors
+compiling sys.c...
+compiling led.c...
+compiling usart.c...
+compiling spi.c...
+compiling key.c...
+compiling sdio_sdcard.c...
+compiling timer.c...
+compiling w25qxx.c...
+compiling 24tft.c...
+..\HARDWARE\ooled\GB1616.h(82): warning:  #1-D: last line of file ends without a newline
+  };
+..\HARDWARE\ooled\24tft.c(393): warning:  #1-D: last line of file ends without a newline
+  }
+..\HARDWARE\ooled\24tft.c(383): warning:  #177-D: variable "j"  was declared but never referenced
+  	unsigned int j;
+..\HARDWARE\ooled\24tft.c: 3 warnings, 0 errors
+compiling malloc.c...
+compiling diskio.c...
+compiling exfuns.c...
+compiling mycc936.c...
+..\FATFS\exfuns\mycc936.c(22): warning:  #177-D: variable "t"  was declared but never referenced
+  	WCHAR t[2];
+..\FATFS\exfuns\mycc936.c(24): warning:  #177-D: variable "i"  was declared but never referenced
+  	u32 i, li, hi;
+..\FATFS\exfuns\mycc936.c(24): warning:  #177-D: variable "li"  was declared but never referenced
+  	u32 i, li, hi;
+..\FATFS\exfuns\mycc936.c(24): warning:  #177-D: variable "hi"  was declared but never referenced
+  	u32 i, li, hi;
+..\FATFS\exfuns\mycc936.c(25): warning:  #177-D: variable "n"  was declared but never referenced
+  	u16 n;			 
+..\FATFS\exfuns\mycc936.c(26): warning:  #177-D: variable "gbk2uni_offset"  was declared but never referenced
+  	u32 gbk2uni_offset=0;		  
+..\FATFS\exfuns\mycc936.c: 6 warnings, 0 errors
+compiling stm32f10x_gpio.c...
+"no source": Error:  #5: cannot open source input file "..\..\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c": No such file or directory
+..\..\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c: 0 warnings, 1 error
+compiling fattester.c...
+compiling stm32f10x_rcc.c...
+"no source": Error:  #5: cannot open source input file "..\..\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c": No such file or directory
+..\..\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c: 0 warnings, 1 error
 linking...
-Program Size: Code=10882 RO-data=2386 RW-data=64 ZI-data=1093024  
+Program Size: Code=10662 RO-data=2386 RW-data=64 ZI-data=1093024  
 FromELF: creating hex file...
-"..\OBJ\test.axf" - 0 Error(s), 8 Warning(s).
+"..\OBJ\test.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +101,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>
