@@ -52,34 +52,6 @@ int main(void)
 	}
 	while(1)
 	{ 
-		for(k=0;k<1000;k++)
-	  {
-	       res=SD_ReadDisk(buf,8192,4);
-					if(res!=0)
-		       {
-		         	times++;
-							while(times==6)
-							{			        	
-								LCD_PutString(0,0,"test fail  ");
-								delay_ms(1000);
-								LCD_PutString(0,0,"test tryA  ");	
-								delay_ms(500);
-							}						
-			        sprintf(num, "%d", j);
-		          LCD_PutString(0,times*16,num);
-		          sprintf(num, "%d", res);
-		          LCD_PutString(48,times*16,num);
-			        LCD_PutString(60,times*16,"A");
-		          while(SD_Init())			//¼ì²â²»µ½SD¿¨
-	            {
-			        	LCD_PutString(0,0,"test fail  ");
-								delay_ms(500);
-								LCD_PutString(0,0,"test tryX  ");
-								delay_ms(500);
-	            }
-							LCD_PutString(0,0,"Times:          ");
-		       }
-	  }
 		for(lsector=44700;lsector<46650;lsector=lsector+8)
 	  {
 	       res=SD_ReadDisk(buf,lsector,8);
