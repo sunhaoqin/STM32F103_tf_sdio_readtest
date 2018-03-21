@@ -40,7 +40,7 @@ int main(void)
 	GPIO_Config();
 	ILI9325_CMO24_Initial();	
 	SPILCD_Clear(0x00);
-	LCD_PutString(0,0,"Times:");
+	LCD_PutString(0,0,"Read&Write");
 	//LCD_PutString(60,16,"T");
 	//while(1);
  	//usmart_dev.init(72);		//初始化USMART		
@@ -48,70 +48,46 @@ int main(void)
  	my_mem_init(SRAMIN);		//初始化内部内存池
  	while(SD_Init())			//检测不到SD卡
 	{
-		LCD_PutString(0,0,"test fail");
+		LCD_PutString(0,0,"Init fail");
 	}
 	while(1)
 	{ 
 		for(lsector=44700;lsector<46650;lsector=lsector+8)
 	  {
 	       res=SD_ReadDisk(buf,lsector,8);
-			   if(res!=0)
-		       {
-		         	times++;
-							while(times==6)
-							{			        	
-								LCD_PutString(0,0,"test fail  ");
-								delay_ms(1000);
-								LCD_PutString(0,0,"test tryB  ");	
-								delay_ms(500);
-							}
-			        sprintf(num, "%d", j);
-		          LCD_PutString(0,times*16,num);
-		          sprintf(num, "%d", res);
-		          LCD_PutString(48,times*16,num);
-			        LCD_PutString(60,times*16,"B");
-		          while(SD_Init())			//检测不到SD卡
-	            {
-			        	LCD_PutString(0,0,"test fail  ");
-								delay_ms(500);
-								LCD_PutString(0,0,"test tryY  ");
-								delay_ms(500);
-	            }
-							LCD_PutString(0,0,"Times:          ");
-
-		       }
+		     if(res!=0) 
+				 {
+					 LCD_PutString(0,20,"read faila");
+					 while(1);
+				 }
+			   res=SD_WriteDisk(buf,lsector,8);
+			   if(res!=0) 
+				 {
+					 LCD_PutString(0,20,"write faila");
+					 while(1);
+				 }
 	  }
-		for(lsector=40300;lsector<40960;lsector=lsector+8)
+		for(lsector=0;lsector<50000;lsector=lsector+8)
 	  {
-	       res=SD_ReadDisk(buf,lsector,8);
-				 if(res!=0)
-		       {
-		         	times++;
-							while(times==6)
-							{			        	
-								LCD_PutString(0,0,"test fail  ");
-								delay_ms(1000);
-								LCD_PutString(0,0,"test tryC  ");	
-								delay_ms(500);
-							}		
-			        sprintf(num, "%d", j);
-		          LCD_PutString(0,times*16,num);
-		          sprintf(num, "%d", res);
-		          LCD_PutString(48,times*16,num);
-			        LCD_PutString(60,times*16,"C");
-		          while(SD_Init())			//检测不到SD卡
-	            {
-			        	LCD_PutString(0,0,"test fail  ");
-								delay_ms(500);
-								LCD_PutString(0,0,"test tryZ  ");
-								delay_ms(500);
-	            }
-							LCD_PutString(0,0,"Times:          ");
-		       }
+	     	 res=SD_ReadDisk(buf,lsector,8);
+		     if(res!=0) 
+				 {
+					 LCD_PutString(0,20,"read failb");
+					 while(1);
+				 }
+			   res=SD_WriteDisk(buf,lsector,8);
+			   if(res!=0) 
+				 {
+					 LCD_PutString(0,20,"write failb");
+					 while(1);
+				 }
+				 j++;
+         sprintf(num, "%d", j*8);
+				 LCD_PutString(0,40,num);
 	  }
-		sprintf(num, "%d", j);
-		LCD_PutString(24,0,num);
-		j++;
+		LCD_PutString(0,20,"finish      ");
+		while(1);
+		j=0;
   }
 }
 
