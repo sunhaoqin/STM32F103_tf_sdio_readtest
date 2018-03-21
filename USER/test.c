@@ -52,7 +52,7 @@ int main(void)
 	}
 	while(1)
 	{ 
-		for(lsector=44700;lsector<46650;lsector=lsector+8)
+		for(lsector=154700;lsector<156650;lsector=lsector+8)
 	  {
 	       res=SD_ReadDisk(buf,lsector,8);
 			   if(res!=0)
@@ -81,7 +81,7 @@ int main(void)
 
 		       }
 	  }
-		for(lsector=40300;lsector<40960;lsector=lsector+8)
+		for(lsector=150300;lsector<150960;lsector=lsector+8)
 	  {
 	       res=SD_ReadDisk(buf,lsector,8);
 				 if(res!=0)
